@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spesial Untuk Vania ✨ | From Ais with Love 💖</title>
+  <!-- Google Fonts: Kaligrafi manis, sans modern, dan serif estetik -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="starlight">
+
+  <!-- Kanvas Efek Latar: Bintang Mengapung, Kembang Api, & Konfeti -->
+  <canvas id="sparkle-canvas"></canvas>
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- OVERLAY LAMPU TIDUR & KUNANG-KUNANG -->
+  <div id="sleep-overlay" class="sleep-overlay hidden">
+    <div class="fireflies-container" id="fireflies-container"></div>
+    <div class="sleep-card" id="sleep-card">
+      <div class="sleep-moon-icon">🌙 ✨</div>
+      <h3>Selamat Istirahat, Vania Tersayang...</h3>
+      <p>
+        "Tutup matamu perlahan, lepaskan semua beban dan lelah hari ini. Kamu sudah melangkah dan berjuang dengan luar biasa hebat. Semoga malammu dipenuhi ketenangan, mimpi yang manis, dan esok hari membawakan senyuman terbaikmu."
+      </p>
+      <div class="sleep-signature">— Selamat tidur dari Ais yang selalu mendoakanmu 💖</div>
+      <button id="close-sleep-btn" class="btn btn-sm btn-secondary" style="margin-top: 16px;">Tutup Mode Lampu Tidur ✕</button>
+    </div>
+  </div>
+
+  <!-- MASKOT KUCING CHIBI GEMOY (MOCHI) YANG MELAYANG DI POJOK -->
+  <aside id="mochi-mascot" class="mochi-mascot" aria-label="Maskot Kucing Mochi">
+    <div class="mochi-bubble" id="mochi-bubble">
+      Hai Vania! Aku Mochi, salam hangat dari Ais yaa! 🌸
+    </div>
+    <div class="mochi-cat" id="mochi-body" title="Elus kepalaku, Vania!">
+      <div class="cat-ears">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+      </div>
+      <div class="cat-head">
+        <div class="cat-eyes">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+        </div>
+        <div class="cat-cheeks">
+          <div class="cheek left"></div>
+          <div class="cheek right"></div>
+        </div>
+        <div class="cat-nose"></div>
+        <div class="cat-mouth">3</div>
+      </div>
+      <div class="cat-paws">
+        <div class="paw left">🐾</div>
+        <div class="paw right">🐾</div>
+      </div>
+    </div>
+    <span class="mascot-tag">Elus Mochi ✨</span>
+  </aside>
+
+  <!-- BAR KONTROL MELAYANG DI POJOK KANAN ATAS -->
+  <nav class="floating-controls" aria-label="Kontrol Website">
+    <button id="sleep-mode-btn" class="control-btn sleep-btn" title="Nyalakan Mode Lampu Tidur & Kunang-Kunang" aria-label="Mode Lampu Tidur">
+      <span class="btn-icon">🌙</span>
+      <span class="btn-text">Lampu Tidur</span>
+    </button>
+    <button id="music-toggle" class="control-btn" title="Nyalakan / Matikan Musik Lofi" aria-label="Musik Lofi">
+      <span class="btn-icon">🎵</span>
+      <span class="btn-text">Musik: <strong>Mati</strong></span>
+    </button>
+    <button id="fountain-btn" class="control-btn fountain-btn" title="Nyalakan Kembang Api Air Mancur" aria-label="Kembang Api">
+      <span class="btn-icon">🎆</span>
+      <span class="btn-text">Kembang Api</span>
+    </button>
+    <div class="theme-picker">
+      <button id="theme-toggle" class="control-btn" title="Ganti Suasana / Tema Warna" aria-label="Tema">
+        <span class="btn-icon">🎨</span>
+        <span class="btn-text">Tema</span>
+      </button>
+      <div class="theme-dropdown hidden" id="theme-dropdown">
+        <button data-set-theme="starlight" class="theme-option active">🌌 Midnight Star</button>
+        <button data-set-theme="dreamy" class="theme-option">🌸 Dreamy Pink</button>
+        <button data-set-theme="sunset" class="theme-option">🌅 Golden Sunset</button>
+        <button data-set-theme="cotton" class="theme-option">🍬 Cotton Candy</button>
+        <button data-set-theme="lavender" class="theme-option">🪻 Lavender Dream</button>
+      </div>
+    </div>
+    <button id="confetti-btn" class="control-btn confetti-btn" title="Sebar Taburan Konfeti Bahagia" aria-label="Konfeti">
+      <span class="btn-icon">✨</span>
+    </button>
+  </nav>
+
+  <!-- FLOATING BOTTOM DOCK NAVIGATION (Jelajah 5 Zona Wonderland) -->
+  <nav class="bottom-wonderland-dock" aria-label="Navigasi Zona Wonderland">
+    <a href="#hero-section" class="dock-item active" data-tooltip="Beranda">
+      <span class="dock-icon">🏠</span>
+      <span class="dock-label">Beranda</span>
+    </a>
+    <a href="#zone-flowers" class="dock-item" data-tooltip="Taman Bunga">
+      <span class="dock-icon">🌸</span>
+      <span class="dock-label">Bunga</span>
+    </a>
+    <a href="#zone-letters" class="dock-item" data-tooltip="Ruang Surat">
+      <span class="dock-icon">💌</span>
+      <span class="dock-label">Surat</span>
+    </a>
+    <a href="#zone-games" class="dock-item" data-tooltip="Wahana Permainan">
+      <span class="dock-icon">🎡</span>
+      <span class="dock-label">Wahana</span>
+    </a>
+    <a href="#zone-pavilion" class="dock-item" data-tooltip="Paviliun Ajaib">
+      <span class="dock-icon">🔮</span>
+      <span class="dock-label">Ajaib</span>
+    </a>
+    <a href="#zone-gallery" class="dock-item" data-tooltip="Galeri & Hadiah">
+      <span class="dock-icon">📸</span>
+      <span class="dock-label">Hadiah</span>
+    </a>
+  </nav>
+
+  <div class="page-container">
+
+    <!-- ====================================================
+         HERO SECTION: SAMBUTAN MANIS & GLOWING
+         ==================================================== -->
+    <header class="hero-section" id="hero-section">
+      <div class="hero-badge animate-float">💌 SEBUAH KEJUTAN SPESIAL DIBUAT DENGAN CINTA 💌</div>
+      <div class="hero-avatar-wrapper">
+        <img src="foto-vania.jpg" alt="Vania" class="hero-avatar-img">
+        <span class="hero-avatar-heart">💖</span>
+      </div>
+      <h1 class="hero-title">
+        Hai, <span class="highlight-name">VANIA</span> <span class="sparkle-icon">✨</span>
+      </h1>
+      <div class="ayang-badge">💖 ORANG PALING BERHARGA & GEMAS UNTUK AIS 💖</div>
+      <p class="hero-subtitle" id="typewriter-text">
+        Halaman ini dirancang khusus dari lubuk hati Ais yang paling dalam untuk Vania, seorang perempuan istimewa yang selalu membawa senyuman, kehangatan, dan warna indah di setiap hari.
+      </p>
+
+      <!-- Penghitung Momen Spesial -->
+      <div class="special-counter-card">
+        <span class="counter-label">⏳ Momen Berharga Bersama Vania:</span>
+        <div class="counter-display">
+          <div class="counter-box"><span id="days-count">0</span><small>Hari</small></div>
+          <div class="counter-separator">:</div>
+          <div class="counter-box"><span id="hours-count">0</span><small>Jam</small></div>
+          <div class="counter-separator">:</div>
+          <div class="counter-box"><span id="minutes-count">0</span><small>Menit</small></div>
+          <div class="counter-separator">:</div>
+          <div class="counter-box"><span id="seconds-count">0</span><small>Detik</small></div>
+        </div>
+        <p class="counter-note">"Setiap detik berjalan, rasa kagum & sayang Ais selalu bertambah."</p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#zone-flowers" class="btn btn-primary">
+          <span>Jelajahi Taman Wonderland</span> 🌸
+        </a>
+        <button id="hero-fountain-btn" class="btn btn-fountain">
+          <span>Nyalakan Bunga Air Mancur</span> 🎆
+        </button>
+        <a href="#letter-section" class="btn btn-secondary">
+          <span>Buka Surat Bersegel Ais</span> ✉️
+        </a>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Gulir ke bawah untuk melihat semua keajaiban</span>
+        <div class="arrow-down">↓</div>
+      </div>
+    </header>
+
+    <!-- ====================================================
+         ZONA 1: TAMAN BUNGA & APRESIASI (ZONE FLOWERS)
+         ==================================================== -->
+    <main id="zone-flowers" class="wonderland-zone">
+      <div class="zone-banner">
+        <span class="zone-badge">ZONA 1</span>
+        <h2>🌸 Taman Bunga & Apresiasi Vania</h2>
+        <p>Di taman ini, semua keindahan dan harum bunga terinspirasi dari senyuman manismu.</p>
+      </div>
+
+      <!-- 1.1 BUKET BUNGA INTERAKTIF -->
+      <section id="bouquet-section" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Buket Spesial</span>
+          <h2>Rangkai Buket Bungamu Sendiri 💐</h2>
+          <p>Pilih bunga-bunga manis di bawah ini untuk ditaruh ke dalam buket indah untuk Vania!</p>
+        </div>
+
+        <div class="bouquet-workspace">
+          <div class="flower-selector">
+            <button class="flower-pick-btn" data-flower="rose" data-name="Mawar Merah Muda" data-meaning="Kasih sayang tulus & kelembutan Ais untuk Vania">
+              <span class="flower-emoji">🌹</span>
+              <div class="flower-info">
+                <strong>Mawar Merah Muda</strong>
+                <small>Simbol kelembutan & ketulusan</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="sunflower" data-name="Bunga Matahari" data-meaning="Keceriaan & senyuman Vania yang menghangatkan hari">
+              <span class="flower-emoji">🌻</span>
+              <div class="flower-info">
+                <strong>Bunga Matahari</strong>
+                <small>Simbol senyummu yang cerah</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="tulip" data-name="Tulip Putih" data-meaning="Ketulusan hati dan doa terbaik Ais untuk Vania">
+              <span class="flower-emoji">🌷</span>
+              <div class="flower-info">
+                <strong>Tulip Putih</strong>
+                <small>Simbol hati yang tulus & damai</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="daisy" data-name="Daisy Cantik" data-meaning="Kepolosan, tawa lepas, dan keceriaan alami Vania">
+              <span class="flower-emoji">🌼</span>
+              <div class="flower-info">
+                <strong>Daisy Cantik</strong>
+                <small>Simbol tawa ceria & kehangatan</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="lavender" data-name="Lavender Tenang" data-meaning="Rasa nyaman, tenang, dan aman saat bersama Vania">
+              <span class="flower-emoji">🪻</span>
+              <div class="flower-info">
+                <strong>Lavender Tenang</strong>
+                <small>Simbol ketenangan & kelembutan</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="sakura" data-name="Sakura Mekar" data-meaning="Keanggunan dan pesona Vania yang memikat hati">
+              <span class="flower-emoji">🌸</span>
+              <div class="flower-info">
+                <strong>Sakura Mekar</strong>
+                <small>Simbol keanggunan & pesona indah</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+
+            <button class="flower-pick-btn" data-flower="hibiscus" data-name="Bunga Tropis Manis" data-meaning="Keceriaan dan keunikan Vania yang tak tergantikan">
+              <span class="flower-emoji">🌺</span>
+              <div class="flower-info">
+                <strong>Bunga Tropis Manis</strong>
+                <small>Simbol keunikan & warna hidup</small>
+              </div>
+              <span class="add-badge">+ Petik</span>
+            </button>
+          </div>
+
+          <!-- Vas Buket Visual -->
+          <div class="bouquet-display-area">
+            <div class="vase-wrapper">
+              <div class="vase-sparkles" id="vase-sparkles"></div>
+              <div class="flowers-in-vase" id="flowers-in-vase">
+                <span class="placeholder-flower-text">Sentuh bunga di kiri untuk mulai merangkai buket Vania ✨</span>
+              </div>
+              <div class="ribbon-band">
+                <span class="ribbon-text">💐 Untuk Vania Tersayang 💖</span>
+              </div>
+              <div class="vase-body">
+                <div class="vase-shine"></div>
+                <div class="vase-heart">💖</div>
+              </div>
+            </div>
+
+            <div class="bouquet-summary">
+              <div class="flower-count-badge">
+                Bunga Terkumpul: <span id="flower-count">0</span> tangkai
+              </div>
+              <div class="bouquet-controls">
+                <button id="wrap-bouquet-btn" class="btn btn-action" disabled>
+                  <span>Bungkus & Kasih Pita 🎀</span>
+                </button>
+                <button id="reset-bouquet-btn" class="btn btn-reset">
+                  <span>Mulai Ulang</span> ↺
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kartu Hasil Buket yang Terbuka -->
+        <div id="bouquet-card-result" class="result-card hidden">
+          <div class="result-header">
+            <h3>Buket Spesial untuk Vania Telah Selesai! 🎉</h3>
+            <p>Buket ini dirangkai dengan rasa kagum dan doa terbaik dari Ais.</p>
+          </div>
+          <div class="flower-meanings-list" id="meanings-list"></div>
+          <div class="result-footer">
+            <p class="sweet-quote">"Semoga harimu selalu seharum dan seindah bunga-bunga ini, Vania. ✨"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.2 SIRAM TANAMAN AJAIB SAMPAI MEKAR -->
+      <section class="section-card plant-section">
+        <div class="section-header">
+          <span class="section-tag">Magical Garden</span>
+          <h2>Siram Tanaman Ajaib Sampai Mekar 🌱💧</h2>
+          <p>Setiap tetes siraman kasih sayang akan membuat benih ini tumbuh menjadi bunga raksasa yang bercahaya!</p>
+        </div>
+        <div class="magic-plant-container">
+          <div class="plant-pot-area">
+            <div class="plant-butterflies" id="plant-butterflies"></div>
+            <div class="plant-visual" id="plant-visual">
+              <div class="plant-stage stage-seed active">🌰<span class="stage-label">Biji Cinta</span></div>
+              <div class="plant-stage stage-sprout">🌱<span class="stage-label">Tunas Muda</span></div>
+              <div class="plant-stage stage-bud">🌿🌷<span class="stage-label">Kuncup Mekar</span></div>
+              <div class="plant-stage stage-bloom">🌸✨💖<span class="stage-label">Bunga Ajaib Vania!</span></div>
+            </div>
+            <div class="pot-base">
+              <div class="pot-rim"></div>
+              <div class="pot-body">🪴 Vania's Bloom</div>
+            </div>
+          </div>
+          <div class="plant-controls">
+            <div class="growth-bar-wrapper">
+              <div class="growth-bar-fill" id="growth-fill" style="width: 25%;"></div>
+            </div>
+            <p class="growth-text" id="growth-text">Fase 1/4: Biji kecil yang baru ditanam dengan harapan...</p>
+            <button id="water-plant-btn" class="btn btn-primary btn-water">
+              <span>Siram dengan Kasih Sayang 💧</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.3 TOPLES KACA BINTANG HARAPAN -->
+      <section id="jar-section" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Bintang Origami</span>
+          <h2>Toples Bintang Harapan untuk Vania ⭐</h2>
+          <p>Di dalam toples kaca ini ada ribuan bintang origami. Sentuh toples untuk mengambil satu pesan manis dari Ais!</p>
+        </div>
+
+        <div class="jar-interactive-box">
+          <div class="glass-jar" id="glass-jar" title="Sentuh toples untuk membuka bintang!">
+            <div class="jar-lid"></div>
+            <div class="jar-neck"></div>
+            <div class="jar-glass">
+              <div class="jar-shine-left"></div>
+              <div class="jar-shine-right"></div>
+              <div class="origami-stars-cluster">
+                <span class="star-item s1">⭐</span>
+                <span class="star-item s2">🌟</span>
+                <span class="star-item s3">✨</span>
+                <span class="star-item s4">⭐</span>
+                <span class="star-item s5">🌟</span>
+                <span class="star-item s6">✨</span>
+                <span class="star-item s7">⭐</span>
+                <span class="star-item s8">🌟</span>
+              </div>
+              <div class="jar-heart-tag">Untuk Vania 💖</div>
+            </div>
+          </div>
+
+          <div class="wish-reveal-area">
+            <button id="pick-star-btn" class="btn btn-action">
+              <span>Ambil 1 Bintang Harapan ✨</span>
+            </button>
+            <div class="wish-paper" id="wish-paper">
+              <div class="wish-paper-pin">📌</div>
+              <span class="wish-index" id="wish-index">Bintang Ke-1</span>
+              <p class="wish-content" id="wish-content">
+                "Vania, terima kasih sudah hadir di dunia ini dengan senyuman yang selalu berhasil bikin hari terasa lebih cerah dan menyenangkan. Kamu luar biasa!"
+              </p>
+              <div class="wish-signature">— Dari Ais dengan tulus 💖</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1.4 CERMIN AJAIB -->
+      <section class="section-card magic-mirror-section">
+        <div class="section-header">
+          <span class="section-tag">Ajaib & Gemas</span>
+          <h2>Cermin Ajaib: Siapa Paling Manis Hari Ini? 🪞✨</h2>
+          <p>Cermin antik ini tidak pernah berbohong. Ayo buktikan sendiri!</p>
+        </div>
+        <div class="mirror-container">
+          <div class="vintage-mirror" id="vintage-mirror">
+            <div class="mirror-frame">
+              <div class="mirror-glass" id="mirror-glass">
+                <div class="mirror-reflection-placeholder">
+                  <span class="mirror-icon">🪞</span>
+                  <p>Sentuh tombol di bawah untuk melihat jawaban cermin...</p>
+                </div>
+                <div class="mirror-reveal hidden" id="mirror-reveal">
+                  <div class="crown-icon">👑</div>
+                  <div class="mirror-face">🥰✨</div>
+                  <h3>TENTU SAJA: VANIA!</h3>
+                  <p class="mirror-quote">"Peringkat 1 orang termanis, paling gemoy, dan paling bikin Ais kagum se-alam semesta!"</p>
+                  <div class="mirror-blush">💖 (Pipi Vania langsung merona) 💖</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="look-mirror-btn" class="btn btn-primary">
+            <span>Tanya ke Cermin Ajaib 🪞</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 1.5 LENTERA HARAPAN KE LANGIT MALAM -->
+      <section class="section-card lantern-section">
+        <div class="section-header">
+          <span class="section-tag">Malam Damai</span>
+          <h2>Festival Lentera Harapan ke Langit 🏮✨</h2>
+          <p>Tulis atau pilih harapan terbaikmu, lalu lepaskan lentera bercahaya ini mengapung ke langit malam berbintang.</p>
+        </div>
+        <div class="lantern-stage" id="lantern-stage">
+          <div class="sky-stars-backdrop"></div>
+          <div class="floating-lantern-anchor" id="floating-lanterns"></div>
+        </div>
+        <div class="lantern-controls">
+          <label for="lantern-wish-select" class="control-label">Pilih Harapan Vania Hari Ini:</label>
+          <div class="wish-select-wrapper">
+            <select id="lantern-wish-select" class="form-select">
+              <option value="Semoga Vania selalu sehat, bahagia, dan dijauhkan dari hal-hal yang bikin sedih!">🌟 Harapan 1: Selalu Sehat & Bahagia</option>
+              <option value="Semoga semua impian dan cita-cita Vania dipermudah jalannya!">🚀 Harapan 2: Segala Impian Tercapai</option>
+              <option value="Semoga senyuman manis Vania gak pernah pudar apa pun yang terjadi!">🥰 Harapan 3: Senyum Manis Selamanya</option>
+              <option value="Semoga Ais bisa selalu ada untuk nemenin dan jagain Vania!">💖 Harapan 4: Ais & Vania Selalu Kompak</option>
+              <option value="Semoga hari esok membawa kabar gembira dan berkah melimpah!">🍀 Harapan 5: Hari Esok yang Indah</option>
+            </select>
+          </div>
+          <button id="release-lantern-btn" class="btn btn-fountain">
+            <span>Lepaskan Lentera ke Langit 🏮</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================================================
+         ZONA 2: RUANG HATI & SURAT (ZONE LETTERS)
+         ==================================================== -->
+    <section id="zone-letters" class="wonderland-zone">
+      <div class="zone-banner">
+        <span class="zone-badge">ZONA 2</span>
+        <h2>💌 Ruang Hati, Surat, & Catatan Rahasia</h2>
+        <p>Di ruang ini, tersimpan kata-kata tulus yang mungkin belum sempat terucap secara langsung.</p>
+      </div>
+
+      <!-- 2.1 SURAT CINTA BERSEGEL LILIN 3D -->
+      <section id="letter-section" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Surat Bersegel</span>
+          <h2>Surat Rahasia Bertutup Lilin Merah ✉️</h2>
+          <p>Sentuh segel lilin merah berbentuk hati untuk memecahkan segel dan membuka surat tulus dari Ais!</p>
+        </div>
+
+        <div class="envelope-area">
+          <div class="wax-envelope" id="wax-envelope">
+            <div class="envelope-flap" id="envelope-flap"></div>
+            <div class="wax-seal" id="wax-seal" title="Klik segel lilin merah ini!">
+              <span class="seal-heart">❤️</span>
+              <span class="seal-crack" id="seal-crack"></span>
+            </div>
+            <div class="envelope-front">
+              <span class="envelope-address">Kepada: Vania Tersayang 💖</span>
+              <small class="seal-instruction">Sentuh segel hati untuk membuka</small>
+            </div>
+          </div>
+
+          <!-- Lembaran Surat Putih Elegan -->
+          <article class="letter-sheet hidden" id="letter-sheet">
+            <div class="letter-inner">
+              <header class="letter-heading">
+                <span class="letter-date">Untuk Hari Ini, Esok, & Seterusnya</span>
+                <h3>Halo, Vania tersayang... ✨</h3>
+              </header>
+
+              <div class="letter-body">
+                <p>
+                  Mungkin hari-hari kadang berjalan begitu cepat dan melelahkan, tapi tolong selalu ingat satu hal ini: kamu sudah melangkah sejauh ini dengan sangat hebat dan luar biasa.
+                </p>
+                <p>
+                  Terima kasih sudah menjadi <strong>Vania</strong> yang apa adanya — dengan segala kehangatan, keramahan, dan caramu melihat dunia yang selalu bikin orang di sekitarmu, terutama Ais, merasa beruntung bisa mengenalmu.
+                </p>
+                <p>
+                  Di mata Ais, kamu bukan sekadar seseorang yang menyenangkan, tapi seseorang yang punya tempat tersendiri di dalam pikiran dan doa. Kehadiranmu itu nyata membawa ketenangan dan warna-warni yang manis.
+                </p>
+                <p>
+                  Jangan pernah merasa sendirian ya. Kapan pun Vania butuh teman cerita, butuh sandaran saat capek, atau sekadar ingin ditemani tertawa, ingatlah kalau Ais selalu ada dan siap mendengarkan. Vania pantas mendapatkan semua hal terbaik, terindah, dan paling membahagiakan di dunia ini.
+                </p>
+              </div>
+
+              <footer class="letter-sign">
+                <p class="sign-from">Dengan segenap rasa kagum & ketulusan,</p>
+                <strong class="sign-name">Ais 💖</strong>
+              </footer>
+
+              <div class="letter-whatsapp-action">
+                <a id="wa-reply-btn" href="https://wa.me/?text=Hai%20Ais%2C%20aku%20udah%20baca%20surat%20manis%20kamu%20di%20webnya...%20Makasih%20banyak%20ya%2C%20bikin%20salting%20banget%20%F0%9F%A5%BA%F0%9F%92%96" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                  <span>Balas Surat ke Ais via WhatsApp 💬</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2.2 BUKU HARIAN RAHASIA 3D (FLIPBOOK) -->
+      <section class="section-card diary-section">
+        <div class="section-header">
+          <span class="section-tag">Buku Harian</span>
+          <h2>Catatan Kecil Ais Tentang Vania 📖✨</h2>
+          <p>Buku catatan mini yang bisa dibalik halamannya secara 3D. Baca halaman demi halaman ya!</p>
+        </div>
+        <div class="flipbook-wrapper">
+          <div class="diary-book" id="diary-book">
+            <!-- Halaman 1 -->
+            <div class="diary-page active" data-page="1">
+              <span class="page-num">Halaman 1/3</span>
+              <h4>Hal-Hal Kecil yang Bikin Kagum 🌟</h4>
+              <p>
+                "Caramu tersenyum waktu cerita hal yang kamu suka, caramu tetap ramah walaupun lagi capek, dan caramu memperlakukan orang lain dengan tulus. Buat Ais, itu hal yang luar biasa langka dan berharga."
+              </p>
+              <div class="page-doodle">🌸 🌷 🌺</div>
+            </div>
+            <!-- Halaman 2 -->
+            <div class="diary-page" data-page="2">
+              <span class="page-num">Halaman 2/3</span>
+              <h4>Kenapa Vania Begitu Spesial? 💎</h4>
+              <img src="foto-jalan.jpg" alt="Momen Melangkah Bersama" style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 8px; margin: 8px 0; border: 2px solid #e0afa0;">
+              <p>
+                "Bukan cuma karena kamu cantik dan manis, tapi karena keberadaanmu itu membawa energi positif yang bikin tenang. Ngobrol sama Vania itu rasanya selalu jadi momen terbaik dalam hari-hari Ais."
+              </p>
+              <div class="page-doodle">☕ 🧸 🎶</div>
+            </div>
+            <!-- Halaman 3 -->
+            <div class="diary-page" data-page="3">
+              <span class="page-num">Halaman 3/3</span>
+              <h4>Sebuah Janji Sederhana 🤞</h4>
+              <p>
+                "Ais janji gak bakal pernah bosen buat ngingetin Vania kalau kamu itu berharga. Ais bakal selalu jadi suporter nomor 1 buat semua mimpi dan kebahagiaanmu. Always here for you, Vania!"
+              </p>
+              <div class="page-doodle">💖 ✨ 👑</div>
+            </div>
+          </div>
+          <div class="diary-nav">
+            <button id="diary-prev-btn" class="btn btn-sm btn-secondary" disabled>← Halaman Sebelumnya</button>
+            <span class="diary-indicator" id="diary-indicator">1 dari 3</span>
+            <button id="diary-next-btn" class="btn btn-sm btn-primary">Halaman Selanjutnya →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.3 MESIN CETAK STRUK KASIR ESTETIK -->
+      <section class="section-card receipt-section">
+        <div class="section-header">
+          <span class="section-tag">Receiptify</span>
+          <h2>Mesin Struk Apresiasi Kasir Vania 🧾</h2>
+          <p>Klik tombol untuk mencetak bukti resmi betapa berharganya Vania!</p>
+        </div>
+        <div class="receipt-machine-box">
+          <div class="cash-register-header">
+            <div class="register-screen">STATUS: SIAP CETAK STRUK 💖</div>
+            <button id="print-receipt-btn" class="btn btn-action">
+              <span>Cetak Struk Resmi Vania 🖨️</span>
+            </button>
+          </div>
+          <div class="receipt-paper hidden" id="receipt-paper">
+            <div class="receipt-jagged-top"></div>
+            <div class="receipt-body">
+              <div class="receipt-title">
+                <h3>TOKO KASIH SAYANG AIS</h3>
+                <p>Cabang Istimewa: Hati & Pikiran</p>
+                <p class="receipt-timestamp" id="receipt-time">2026-09-18 • 20:30 WIB</p>
+                <div class="receipt-divider">================================</div>
+              </div>
+              <div class="receipt-items">
+                <div class="r-row"><span>1x Senyuman Manis Vania</span><strong>Rp 0 (Priceless)</strong></div>
+                <div class="r-row"><span>1x Kehadiranmu Hari Ini</span><strong>Qty: Unlimited</strong></div>
+                <div class="r-row"><span>1x Tawa & Ceria Alami</span><strong>100% Hangat</strong></div>
+                <div class="r-row"><span>1x Rasa Kagum & Sayang Ais</span><strong>Tak Terhingga</strong></div>
+                <div class="receipt-divider">--------------------------------</div>
+                <div class="r-row total"><span>TOTAL BERHARGA:</span><strong>SEGALANYA 💖</strong></div>
+                <div class="receipt-divider">================================</div>
+              </div>
+              <div class="receipt-barcode">
+                <div class="barcode-lines">||| | |||| | || ||||| | ||| |||| | ||</div>
+                <small>KODE: VANIA-PALING-GEMOY-2026</small>
+                <p class="barcode-note">*Struk ini berlaku selamanya dan tidak bisa kadaluarsa.*</p>
+              </div>
+            </div>
+            <div class="receipt-jagged-bottom"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.4 PEMUTAR PESAN SUARA / WAVEFORM PLAYER -->
+      <section class="section-card vn-section">
+        <div class="section-header">
+          <span class="section-tag">Voice Waveform</span>
+          <h2>Pesan Suara & Melodi Kalbu untuk Vania 🎙️</h2>
+          <p>Dengarkan alunan melodi manis dengan visualisasi gelombang suara yang menari lembut.</p>
+        </div>
+        <div class="vn-player-card">
+          <div class="vn-avatar">
+            <span>Ais 💬</span>
+          </div>
+          <div class="vn-content">
+            <div class="vn-meta">
+              <strong>Pesan Suara Spesial untuk Vania</strong>
+              <span class="vn-duration" id="vn-duration">0:45</span>
+            </div>
+            <div class="vn-waveform" id="vn-waveform">
+              <!-- Bar gelombang suara yang bergerak dinamis -->
+              <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+              <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+              <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+              <div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div><div class="w-bar"></div>
+            </div>
+            <p class="vn-caption">"Semoga harimu selalu dipenuhi ketenangan dan hal-hal yang bikin kamu tersenyum ya, Vania."</p>
+          </div>
+          <button id="vn-play-btn" class="vn-play-btn" title="Putar Melodi VN">
+            <span id="vn-play-icon">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2.5 PETA HARTA KARUN PERASAAN -->
+      <section class="section-card treasure-map-section">
+        <div class="section-header">
+          <span class="section-tag">Peta Kisah</span>
+          <h2>Peta Harta Karun Perjalanan Rasa 🗺️🧭</h2>
+          <p>Klik pulau-pulau kecil di peta fantasi ini untuk membaca cerita di balik setiap koordinatnya!</p>
+        </div>
+        <div class="treasure-map-box">
+          <div class="map-island island-1" data-island="1">
+            <span class="island-icon">🏝️</span>
+            <strong>Pulau Pertama Kenal</strong>
+            <small>Titik awal perjalanan</small>
+          </div>
+          <div class="map-dotted-line line-1">·············</div>
+          <div class="map-island island-2" data-island="2">
+            <span class="island-icon">🏖️</span>
+            <strong>Tanjung Senyum Vania</strong>
+            <small>Momen senyummu nyantol</small>
+          </div>
+          <div class="map-dotted-line line-2">·············</div>
+          <div class="map-island island-3" data-island="3">
+            <span class="island-icon">🏰</span>
+            <strong>Pelabuhan Hati Ais</strong>
+            <small>Tempat berlabuh selamanya</small>
+          </div>
+        </div>
+        <div class="island-story-card" id="island-story-card">
+          <h4>Pilih salah satu pulau di atas untuk membaca kisahnya! ⛵</h4>
+        </div>
+      </section>
+    </section>
+
+    <!-- ====================================================
+         ZONA 3: WAHANA PERMAINAN & TAWA (ZONE GAMES)
+         ==================================================== -->
+    <section id="zone-games" class="wonderland-zone">
+      <div class="zone-banner">
+        <span class="zone-badge">ZONA 3</span>
+        <h2>🎡 Wahana Permainan, Tawa, & Keseruan</h2>
+        <p>Ayo bermain santai! Di sini semuanya dirancang khusus untuk bikin Vania ketawa dan salting.</p>
+      </div>
+
+      <!-- 3.1 THE RUNAWAY "GAK" BUTTON -->
+      <section class="section-card runaway-section">
+        <div class="section-header">
+          <span class="section-tag">Tanya Santai</span>
+          <h2>Sebuah Pertanyaan Penting Buat Vania... 🍦✨</h2>
+          <p>Coba jawab pertanyaan ini dengan jujur yaa!</p>
+        </div>
+        <div class="runaway-playground" id="runaway-container">
+          <h3 class="runaway-question">"Vania, mau gak luangkan waktu jalan / jajan es krim bareng Ais?" 🥰</h3>
+          <p class="runaway-subtitle" id="runaway-dialog">Silakan pilih salah satu tombol di bawah:</p>
+          <div class="runaway-actions">
+            <button id="runaway-yes-btn" class="btn btn-primary btn-yes">
+              <span>Mau Banget! 🥰</span>
+            </button>
+            <button id="runaway-no-btn" class="btn btn-secondary btn-no">
+              <span>Gak Mau 😜</span>
+            </button>
+          </div>
+        </div>
+        <div id="runaway-celebration" class="result-card hidden">
+          <h3>YAYYY! AKHIRNYA MAU! 🎉🍦</h3>
+          <p>Ais langsung siapin traktiran es krim paling enak khusus buat Vania tersayang!</p>
+          <a href="https://wa.me/?text=Hai%20Ais!%20Aku%20udah%20klik%20MAU%20BANGET%20nih%20di%20webnya%2C%20kapan%20kita%20jalan%20bareng%3F%20%F0%9F%8D%A6%F0%9F%A5%B0" target="_blank" class="btn btn-whatsapp">
+            Klaim Janji Jalan via WhatsApp 💌
+          </a>
+        </div>
+      </section>
+
+      <!-- 3.2 MESIN KAPSUL LOVE GACHA -->
+      <section class="section-card gacha-section">
+        <div class="section-header">
+          <span class="section-tag">Lucky Capsule</span>
+          <h2>Mesin Kapsul Keberuntungan (Love Gacha) 🎰🧸</h2>
+          <p>Tarik tuas untuk mendapatkan tiket kupon spesial yang bisa Vania klaim ke Ais kapan saja!</p>
+        </div>
+        <div class="gacha-machine-wrapper">
+          <div class="gacha-globe">
+            <div class="capsules-inside">
+              <span class="capsule c-pink">🟣</span>
+              <span class="capsule c-gold">🟡</span>
+              <span class="capsule c-blue">🔵</span>
+              <span class="capsule c-green">🟢</span>
+              <span class="capsule c-red">🔴</span>
+            </div>
+            <div class="gacha-shine"></div>
+          </div>
+          <div class="gacha-chute">
+            <button id="pull-gacha-btn" class="btn btn-fountain">
+              <span>Tarik Tuas Gacha! 🕹️</span>
+            </button>
+          </div>
+        </div>
+        <div id="gacha-ticket-result" class="gacha-ticket hidden">
+          <div class="ticket-badge">KUPON SPESIAL VANIA 🎟️</div>
+          <h3 id="ticket-title">Kupon Ditraktir Makanan Favorit</h3>
+          <p id="ticket-desc">Vania bebas memilih menu makanan atau minuman apa pun, Ais yang tanggung semuanya!</p>
+          <a id="ticket-claim-btn" href="#" target="_blank" class="btn btn-whatsapp btn-sm">
+            Klaim Kupon ini ke Ais via WA 💬
+          </a>
+        </div>
+      </section>
+
+      <!-- 3.3 MINI GAME ARCADE: TANGKAP KELINCI 15 DETIK -->
+      <section class="section-card whack-section">
+        <div class="section-header">
+          <span class="section-tag">Game Arcade 15 Detik</span>
+          <h2>Tangkap Kelinci Senyum Vania 🐰🔨</h2>
+          <p>Uji refleks jarimu! Sentuh kelinci-kelinci gemoy yang muncul dalam 15 detik untuk dapat piala.</p>
+        </div>
+        <div class="whack-game-container">
+          <div class="whack-stats">
+            <div>Waktu: <strong id="whack-timer">15</strong>s</div>
+            <div>Skor: <strong id="whack-score">0</strong></div>
+            <button id="whack-start-btn" class="btn btn-primary btn-sm">Mulai Game 🎮</button>
+          </div>
+          <div class="whack-grid">
+            <div class="whack-hole" data-hole="0"><div class="whack-mole">🐰</div></div>
+            <div class="whack-hole" data-hole="1"><div class="whack-mole">🐰</div></div>
+            <div class="whack-hole" data-hole="2"><div class="whack-mole">🐰</div></div>
+            <div class="whack-hole" data-hole="3"><div class="whack-mole">🐰</div></div>
+            <div class="whack-hole" data-hole="4"><div class="whack-mole">🐰</div></div>
+            <div class="whack-hole" data-hole="5"><div class="whack-mole">🐰</div></div>
+          </div>
+          <div id="whack-trophy-card" class="result-card hidden">
+            <h3>🏆 PIALA REFLEKS TERGEMOY DI DUNIA!</h3>
+            <p id="whack-result-text">Skormu luar biasa! Vania resmi dinobatkan sebagai pemain arcade paling manis.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.4 MINI GAME: TANGKAP BINTANG & CINTA -->
+      <section id="game-section" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Mini Game Santai</span>
+          <h2>Tangkap Bintang & Hati untuk Vania 🎮💖</h2>
+          <p>Gerakkan keranjang Vania (sentuh di HP / kursor di laptop) untuk menangkap bintang dan hati!</p>
+        </div>
+
+        <div class="game-dashboard">
+          <div class="game-stat">
+            <span class="stat-label">Skor</span>
+            <span class="stat-val" id="game-score">0</span>
+          </div>
+          <div class="game-stat">
+            <span class="stat-label">Target Menang</span>
+            <span class="stat-val">30 Poin</span>
+          </div>
+          <div class="game-stat">
+            <span class="stat-label">Status</span>
+            <span class="stat-val" id="game-status">Siap Dimainkan</span>
+          </div>
+          <button id="game-start-btn" class="btn btn-primary btn-sm">
+            <span>Mulai / Ulang Permainan</span> 🚀
+          </button>
+        </div>
+
+        <div class="canvas-game-wrapper">
+          <canvas id="game-canvas" width="600" height="380"></canvas>
+          <div class="game-overlay-hint" id="game-hint">
+            <span>Klik "Mulai" lalu geser keranjang ke kiri & kanan!</span>
+          </div>
+        </div>
+
+        <div id="game-win-card" class="result-card hidden">
+          <h3>SELAMAT, VANIA HEBAT BANGET! 🏆🎉</h3>
+          <p>Kamu berhasil mengumpulkan semua cinta dan bintang dengan sempurna!</p>
+          <p class="sweet-quote">"Ketangkasanmu nomor satu, manisnya juga nomor satu! ✨"</p>
+        </div>
+      </section>
+
+      <!-- 3.5 DAPUR DONAT IMPIAN VANIA -->
+      <section class="section-card donut-section">
+        <div class="section-header">
+          <span class="section-tag">Sweet Kitchen</span>
+          <h2>Dapur Donat Impian Vania 🍩🍰</h2>
+          <p>Racik donat manismu sendiri: pilih glaze, taburan topping, dan hiasan lilin hati!</p>
+        </div>
+        <div class="donut-maker-wrapper">
+          <div class="donut-plate">
+            <div class="donut-base" id="donut-preview">
+              <div class="donut-hole"></div>
+              <div class="donut-glaze" id="donut-glaze"></div>
+              <div class="donut-topping" id="donut-topping"></div>
+              <div class="donut-candle hidden" id="donut-candle">🕯️❤️</div>
+            </div>
+          </div>
+          <div class="donut-options">
+            <div class="option-group">
+              <label>1. Pilih Rasa Glaze:</label>
+              <div class="button-group">
+                <button class="btn btn-sm btn-glaze active" data-glaze="strawberry">🍓 Strawberry</button>
+                <button class="btn btn-sm btn-glaze" data-glaze="chocolate">🍫 Cokelat</button>
+                <button class="btn btn-sm btn-glaze" data-glaze="matcha">🍵 Matcha</button>
+                <button class="btn btn-sm btn-glaze" data-glaze="caramel">🍯 Karamel</button>
+              </div>
+            </div>
+            <div class="option-group">
+              <label>2. Pilih Topping Taburan:</label>
+              <div class="button-group">
+                <button class="btn btn-sm btn-topping active" data-topping="rainbow">🌈 Meses Pelangi</button>
+                <button class="btn btn-sm btn-topping" data-topping="stars">⭐ Bintang Gula</button>
+                <button class="btn btn-sm btn-topping" data-topping="choco-chips">🍪 Choco Chips</button>
+                <button class="btn btn-sm btn-topping" data-topping="marshmallow">🍬 Marshmallow</button>
+              </div>
+            </div>
+            <div class="option-group">
+              <label>3. Aksesoris Tambahan:</label>
+              <button id="toggle-candle-btn" class="btn btn-sm btn-secondary">Pasang Lilin Cinta 🕯️</button>
+            </div>
+            <a id="donut-order-btn" href="https://wa.me/?text=Hai%20Ais!%20Aku%20udah%20bikin%20donat%20impian%20aku%20di%20web%20kamu%20nih%20%F0%9F%8D%A9%20Kapan%20mau%20traktir%20beneran%3F" target="_blank" class="btn btn-whatsapp">
+              Pesan Donat Ini ke Ais via WA 💌
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.6 KUIS KELAYAKAN ORANG TERGEMOY -->
+      <section class="section-card quiz-section">
+        <div class="section-header">
+          <span class="section-tag">Ujian Cinta</span>
+          <h2>Kuis Kelayakan Menjadi Orang Tergemoy 📝🎓</h2>
+          <p>Jawab 3 pertanyaan ringan ini untuk mengklaim sertifikat kelulusan resmimu!</p>
+        </div>
+        <div class="quiz-container" id="quiz-container">
+          <div class="quiz-question-box">
+            <h4 id="quiz-question">Soal 1: Siapa perempuan paling manis yang selalu bikin Ais terpesona?</h4>
+            <div class="quiz-options" id="quiz-options">
+              <!-- Pilihan ganda diisi dinamis oleh JS -->
+            </div>
+          </div>
+          <div class="quiz-progress">
+            Soal <span id="quiz-step">1</span> dari 3
+          </div>
+        </div>
+        <div id="quiz-certificate-card" class="result-card hidden certificate-card">
+          <div class="cert-gold-border">
+            <div class="cert-ribbon">🎖️ SERTIFIKAT KELULUSAN RESMI 🎖️</div>
+            <h3>DIBERIKAN DENGAN BANGGA KEPADA:</h3>
+            <h2 class="cert-name">VANIA</h2>
+            <p>Atas prestasinya sebagai perempuan paling manis, paling ramah, dan paling pantas mendapatkan kebahagiaan tanpa batas di dunia ini.</p>
+            <div class="cert-signatures">
+              <div>Tertanda: <strong>Ais 💖</strong></div>
+              <div>Status: <strong>Lulus Nilai 1000/100 🏆</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ====================================================
+         ZONA 4: PAVILIUN RELAKSASI & HIBURAN (ZONE PAVILION)
+         ==================================================== -->
+    <section id="zone-pavilion" class="wonderland-zone">
+      <div class="zone-banner">
+        <span class="zone-badge">ZONA 4</span>
+        <h2>🔮 Paviliun Relaksasi, Musik, & Hiburan Jiwa</h2>
+        <p>Tempat yang tenang untuk melepas lelah, mendengarkan denting nada, dan menyegarkan pikiran.</p>
+      </div>
+
+      <!-- 4.1 KOTAK P3K CINTA -->
+      <section class="section-card p3k-section">
+        <div class="section-header">
+          <span class="section-tag">First Aid Kit</span>
+          <h2>Kotak P3K Kasih Sayang Khusus Vania 🩹🩺</h2>
+          <p>Buka kotak medis ini saat Vania butuh obat untuk hari yang melelahkan.</p>
+        </div>
+        <div class="p3k-container">
+          <div class="p3k-kit-box">
+            <button class="p3k-item-btn" data-p3k="plaster">
+              <span class="p3k-icon">🩹</span>
+              <strong>Plester Anti Bad Day</strong>
+            </button>
+            <button class="p3k-item-btn" data-p3k="ointment">
+              <span class="p3k-icon">🧴</span>
+              <strong>Salep Anti Overthinking</strong>
+            </button>
+            <button class="p3k-item-btn" data-p3k="candy">
+              <span class="p3k-icon">🍬</span>
+              <strong>Permen Mood Booster</strong>
+            </button>
+            <button class="p3k-item-btn" data-p3k="vitamin">
+              <span class="p3k-icon">🧃</span>
+              <strong>Vitamin Perhatian Ais</strong>
+            </button>
+          </div>
+          <div class="p3k-response-card" id="p3k-response-card">
+            <h4>Sentuh salah satu obat di atas untuk melihat khasiatnya! 💖</h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.2 BOLA KRISTAL PERAMAL KEBERUNTUNGAN -->
+      <section class="section-card crystal-section">
+        <div class="section-header">
+          <span class="section-tag">Magical Fortune</span>
+          <h2>Bola Kristal Peramal Keberuntungan 🔮✨</h2>
+          <p>Sentuh bola kristal bercahaya ini untuk menerawang keberuntungan Vania hari ini!</p>
+        </div>
+        <div class="crystal-ball-wrapper">
+          <div class="crystal-ball" id="crystal-ball" title="Sentuh bola kristal!">
+            <div class="crystal-glow"></div>
+            <div class="crystal-smoke"></div>
+            <span class="crystal-symbol">✨</span>
+          </div>
+          <div class="crystal-result" id="crystal-result">
+            <p>Sentuh bola kristal untuk melihat ramalan hoki Vania...</p>
+          </div>
+          <button id="touch-crystal-btn" class="btn btn-action">
+            <span>Sentuh Bola Kristal 🔮</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4.3 KOTAK MUSIK KALIMBA PASTEL -->
+      <section class="section-card kalimba-section">
+        <div class="section-header">
+          <span class="section-tag">Kotak Musik Lembut</span>
+          <h2>Kotak Musik Kalimba Pastel untuk Vania 🎹🎵</h2>
+          <p>Sentuh bilah-bilah kalimba untuk memainkan nada kristal jernih atau putar lagu otomatis!</p>
+        </div>
+        <div class="kalimba-instrument">
+          <div class="kalimba-keys" id="kalimba-keys">
+            <button class="k-key" data-note="C4" data-freq="261.63"><span>C</span></button>
+            <button class="k-key" data-note="D4" data-freq="293.66"><span>D</span></button>
+            <button class="k-key" data-note="E4" data-freq="329.63"><span>E</span></button>
+            <button class="k-key" data-note="F4" data-freq="349.23"><span>F</span></button>
+            <button class="k-key" data-note="G4" data-freq="392.00"><span>G</span></button>
+            <button class="k-key" data-note="A4" data-freq="440.00"><span>A</span></button>
+            <button class="k-key" data-note="B4" data-freq="493.88"><span>B</span></button>
+            <button class="k-key" data-note="C5" data-freq="523.25"><span>C'</span></button>
+          </div>
+          <div class="kalimba-soundhole">
+            <div class="soundhole-heart">💖 Vania Sound</div>
+          </div>
+        </div>
+        <div class="kalimba-actions">
+          <button id="kalimba-play-melody-btn" class="btn btn-primary">
+            <span>Mainkan "Melodi untuk Vania" 🎶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4.4 RASI BINTANG HUBUNGKAN TITIK "VANIA" -->
+      <section class="section-card constellation-section">
+        <div class="section-header">
+          <span class="section-tag">Langit Kosmis</span>
+          <h2>Hubungkan Rasi Bintang: Mengukir Nama Vania 🌌✨</h2>
+          <p>Klik titik-titik bintang bernomor secara berurutan (1 sampai 7) untuk menyalakan rasi bintang berkilau!</p>
+        </div>
+        <div class="constellation-canvas-wrapper">
+          <canvas id="constellation-canvas" width="600" height="340"></canvas>
+          <div class="constellation-status" id="constellation-status">
+            Mulai dari Titik Bintang 1...
+          </div>
+          <button id="reset-constellation-btn" class="btn btn-reset btn-sm">Ulangi Rasi</button>
+        </div>
+      </section>
+
+      <!-- 4.5 TIKET GOSOK SCRATCH-OFF (CANVAS INTERAKTIF) -->
+      <section class="section-card scratch-section">
+        <div class="section-header">
+          <span class="section-tag">Scratch Card</span>
+          <h2>Tiket Gosok Berhadiah Kejutan 🪙✨</h2>
+          <p>Gunakan jari (di HP) atau kursor mouse untuk menggosok lapisan perak di bawah ini!</p>
+        </div>
+        <div class="scratch-card-container">
+          <div class="scratch-reward-layer" id="scratch-reward">
+            <div class="reward-sparkle">✨ 🎉 💖</div>
+            <h3>SELAMAT, KAMU MENANG BESAR!</h3>
+            <p class="reward-headline">"Vania Berhak Mendapatkan Peluk Hangat + Bebas Request Apa Pun ke Ais!"</p>
+            <small>Kupon ini berlaku tanpa batas waktu.</small>
+          </div>
+          <canvas id="scratch-canvas" width="360" height="180"></canvas>
+        </div>
+        <p class="scratch-progress-text" id="scratch-text">Gosok layarnya sampai bersih yaa! (0% terbuka)</p>
+      </section>
+
+      <!-- 4.6 MOOD BOOSTER & BALON POP -->
+      <section class="section-card mood-section">
+        <div class="section-header">
+          <span class="section-tag">Mood Booster</span>
+          <h2>Bagaimana Perasaan Vania Hari Ini? 🌈</h2>
+          <p>Pilih suasana hatimu saat ini, ada kejutan manis sesuai mood-mu!</p>
+        </div>
+        <div class="mood-selector-buttons">
+          <button class="mood-btn" data-mood="tired">🥺 Lagi Capek</button>
+          <button class="mood-btn" data-mood="annoyed">😤 Lagi Kesel</button>
+          <button class="mood-btn" data-mood="happy">🥰 Lagi Senang</button>
+          <button class="mood-btn" data-mood="sleepy">😴 Lagi Ngantuk</button>
+        </div>
+        <div class="mood-response-area" id="mood-response-area">
+          <div class="mood-card-box">
+            <p>Pilih salah satu tombol perasaan di atas untuk melihat penawarnya! 🌸</p>
+          </div>
+        </div>
+        <!-- Bubble Wrap Pop mini game (muncul kalau klik 'Lagi Kesel') -->
+        <div class="bubble-wrap-area hidden" id="bubble-wrap-area">
+          <h4>Pecahkan Balon Bubble Wrap Ini Buat Buang Stres! 🎈</h4>
+          <div class="bubble-grid" id="bubble-grid">
+            <!-- 12 Gelembung Bubble Pop -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.7 TOMBOL DARURAT TEDDY BEAR -->
+      <section class="section-card emergency-section">
+        <div class="section-header">
+          <span class="section-tag">Hiburan Cepat</span>
+          <h2>Tombol Darurat Pengusir Hari Buruk 🚨🧸</h2>
+          <p>Pencet tombol merah ini saat Vania butuh hujan kebahagiaan instan!</p>
+        </div>
+        <div class="emergency-box">
+          <button id="emergency-btn" class="emergency-red-btn">
+            <span class="e-icon">🚨</span>
+            <span class="e-text">PENCET UNTUK HIBURAN DARURAT!</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4.8 METERAN "SEBERAPA SPESIAL VANIA" OVERLOAD 99999% -->
+      <section class="section-card love-meter-section">
+        <div class="section-header">
+          <span class="section-tag">Love Meter</span>
+          <h2>Meteran Seberapa Spesial Vania untuk Ais 📈💥</h2>
+          <p>Klik tombol tes untuk mengukur kadar seberapa berharga dirimu!</p>
+        </div>
+        <div class="meter-container">
+          <div class="meter-gauge">
+            <div class="meter-bar-fill" id="meter-fill" style="width: 10%;"></div>
+          </div>
+          <div class="meter-number" id="meter-number">10%</div>
+          <p class="meter-status" id="meter-status">Siap mengukur...</p>
+          <button id="test-meter-btn" class="btn btn-action">
+            <span>Ukur Sekarang ⚡</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4.9 SPOTIFY PLAYER DENGAN LIRIK BERJALAN -->
+      <section class="section-card spotify-section">
+        <div class="section-header">
+          <span class="section-tag">Vania's Playlist</span>
+          <h2>Pemutar Musik & Lirik Berjalan 🎧📱</h2>
+          <p>Lagu apresiasi yang dibuat khusus dengan lirik yang menyentuh hati.</p>
+        </div>
+        <div class="spotify-card">
+          <div class="spotify-vinyl-box">
+            <div class="vinyl-disc" id="vinyl-disc">
+              <div class="vinyl-label">💖 Ais x Vania</div>
+            </div>
+          </div>
+          <div class="spotify-info">
+            <span class="track-tag">Official Sweet Track</span>
+            <h3 class="track-title">Selalu Ada Buat Vania</h3>
+            <p class="track-artist">Ais (feat. Hati yang Tulus)</p>
+            <div class="track-progress">
+              <div class="track-bar-fill" id="track-fill"></div>
+            </div>
+            <div class="track-lyrics-box" id="lyrics-box">
+              <p class="lyric-line active" data-sec="0">"Hari ini, esok, dan selamanya..."</p>
+              <p class="lyric-line" data-sec="5">"Senyum manismu selalu jadi alasan tersenyum..."</p>
+              <p class="lyric-line" data-sec="10">"Tak peduli seberapa lelah harimu..."</p>
+              <p class="lyric-line" data-sec="15">"Ingatlah Vania, kamu gak pernah sendirian."</p>
+              <p class="lyric-line" data-sec="20">"Ais selalu ada di sini untukmu. 💖"</p>
+            </div>
+            <button id="spotify-play-btn" class="btn btn-sm btn-primary">Putar Lagu & Lirik ▶</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.10 SIMULASI CHAT SALTING AIS X VANIA -->
+      <section class="section-card chat-section">
+        <div class="section-header">
+          <span class="section-tag">Interactive Chat</span>
+          <h2>Kirim Chat ke Ais & Lihat Balasannya 💬🥰</h2>
+          <p>Pilih pesan apa yang mau kamu sampaikan ke Ais sekarang:</p>
+        </div>
+        <div class="chat-mockup">
+          <div class="chat-header">
+            <div class="chat-contact">
+              <span class="contact-avatar">👦</span>
+              <div>
+                <strong>Ais 💖</strong>
+                <small id="typing-status">Online</small>
+              </div>
+            </div>
+          </div>
+          <div class="chat-messages" id="chat-messages">
+            <div class="message msg-received">
+              Hai Vania! Lagi ngapain? Web kejutan ini beneran aku bikin khusus buat kamu lho! 🥰
+            </div>
+          </div>
+          <div class="chat-quick-replies">
+            <button class="btn-chat-reply" data-reply="1">"Ais kok bisa kepikiran bikin web selucu ini?"</button>
+            <button class="btn-chat-reply" data-reply="2">"Aku lagi laper nih, mau makan enak..."</button>
+            <button class="btn-chat-reply" data-reply="3">"Kira-kira kamu kangen gak sama aku?"</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ====================================================
+         ZONA 5: GALERI RAHASIA & GRAND FINALE (ZONE GALLERY)
+         ==================================================== -->
+    <section id="zone-gallery" class="wonderland-zone">
+      <div class="zone-banner">
+        <span class="zone-badge">ZONA 5</span>
+        <h2>📸 Galeri Rahasia, Kado, & Puncak Perayaan</h2>
+        <p>Babak penutup yang megah dan penuh kenangan indah yang tak terlupakan.</p>
+      </div>
+
+      <!-- 5.1 KOREAN 4-CUT PHOTOBOOTH -->
+      <section class="section-card photobooth-section">
+        <div class="section-header">
+          <span class="section-tag">Life 4-Cuts</span>
+          <h2>Bilik Foto Polaroid Korea Vania 🎞️📸</h2>
+          <p>Strip foto estetik 4-kotak dengan stempel tanggal dan stiker gemas!</p>
+        </div>
+        <div class="photobooth-wrapper">
+          <div class="photo-strip" id="photo-strip">
+            <div class="strip-header">VANIA & AIS SPECIAL CUT ✨</div>
+            <div class="strip-frames">
+              <div class="frame-box f1">
+                <img src="foto-vania.jpg" alt="Vania Manis">
+                <span class="frame-caption">Senyum Paling Manis Vania 🥰</span>
+              </div>
+              <div class="frame-box f2">
+                <img src="foto-berdua.jpg" alt="Ais dan Vania">
+                <span class="frame-caption">Ais & Vania Kompak ✌️</span>
+              </div>
+              <div class="frame-box f3">
+                <img src="foto-jalan.jpg" alt="Melangkah Bersama">
+                <span class="frame-caption">Melangkah Bersama 🎒</span>
+              </div>
+              <div class="frame-box f4">
+                <img src="foto-berdua.jpg" alt="Momen Indah">
+                <span class="frame-caption">Selalu Bikin Bahagia ✨</span>
+              </div>
+            </div>
+            <div class="strip-footer">
+              <span>SPECIAL MEMORY • 2026</span>
+            </div>
+          </div>
+          <div class="strip-actions">
+            <button id="print-strip-btn" class="btn btn-action">
+              <span>Cetak Foto Strip Ini 🖨️</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5.2 BUKA KADO 3D BERPITA -->
+      <section class="section-card gift-box-section">
+        <div class="section-header">
+          <span class="section-tag">Kado Rahasia</span>
+          <h2>Buka Kotak Kado Kejutan Berpita Sutra 🎁🎀</h2>
+          <p>Tarik pita sutranya untuk membuka kotak dan menerbangkan balon kejutan!</p>
+        </div>
+        <div class="gift-box-wrapper">
+          <div class="gift-box-3d" id="gift-box-3d">
+            <div class="gift-lid" id="gift-lid">
+              <div class="gift-ribbon-bow" id="gift-bow">🎀</div>
+            </div>
+            <div class="gift-body">
+              <div class="gift-tag">Untuk: Vania 💖</div>
+            </div>
+          </div>
+          <button id="open-gift-btn" class="btn btn-fountain">
+            <span>Tarik Pita & Buka Kado 🎀</span>
+          </button>
+        </div>
+        <div id="gift-opened-result" class="result-card hidden">
+          <div class="balloon-parade">🎈 🎈 🎈</div>
+          <h3>SURPRISE BESAR DARI AIS! 🎉</h3>
+          <p class="gift-banner">"Selamat Vania! Semoga semua hal yang kamu impikan segera terwujud dan harimu selalu bertabur keberuntungan!"</p>
+        </div>
+      </section>
+
+      <!-- 5.3 KOTAK RAHASIA BERKUNCI SANDI -->
+      <section id="secret-section" class="section-card">
+        <div class="section-header">
+          <span class="section-tag">Brankas Sandi</span>
+          <h2>Kotak Rahasia Berkunci Sandi 🔐✨</h2>
+          <p>Di dalam brankas ini ada hadiah kenangan. Masukkan salah satu kata sandi rahasia untuk membukanya!</p>
+        </div>
+
+        <div class="secret-box-workspace">
+          <div class="vault-icon" id="vault-icon">🔒</div>
+          
+          <div class="passcode-area">
+            <label for="passcode-input" class="passcode-label">Masukkan Kata Sandi Rahasia:</label>
+            <div class="input-with-button">
+              <input type="text" id="passcode-input" placeholder="Ketik kata sandi di sini..." autocomplete="off">
+              <button id="unlock-btn" class="btn btn-action">
+                <span>Buka Brankas</span> 🔓
+              </button>
+            </div>
+            <div class="passcode-hints">
+              <small>Petunjuk Sandi: Coba ketik nama kamu <code>vania</code>, <code>ais</code>, <code>cantik</code>, <code>gemas</code>, atau <code>123</code></small>
+            </div>
+            <p id="passcode-feedback" class="feedback-msg"></p>
+          </div>
+
+          <!-- Hadiah di Dalam Brankas -->
+          <div id="vault-prize" class="vault-prize hidden">
+            <div class="prize-badge">🎉 Brankas Terbuka Sempurna! 🎉</div>
+            
+            <div class="polaroid-frame">
+              <div class="polaroid-photo">
+                <img src="foto-berdua.jpg" alt="Ais & Vania Bersama" class="polaroid-img">
+              </div>
+              <div class="polaroid-caption">
+                "Ais & Vania: Momen Paling Manis, Berharga, & Penuh Tawa 💖"
+              </div>
+            </div>
+
+            <div class="polaroid-frame" style="margin-top: 14px;">
+              <div class="polaroid-photo">
+                <img src="foto-vania.jpg" alt="Vania Manis" class="polaroid-img">
+              </div>
+              <div class="polaroid-caption">
+                "Vania: Sosok Paling Manis yang Selalu Membawa Cahaya ✨"
+              </div>
+            </div>
+
+            <div class="prize-message">
+              <p>
+                Kamu telah membuka seluruh isi hati dan kejutan yang ada di website ini. Ais bener-bener bersyukur dan bahagia bisa mengenal Vania. Semoga kebahagiaan selalu menyertaimu ya! 💖
+              </p>
+              <a href="https://wa.me/?text=Hai%20Ais%2C%20aku%20udah%20berhasil%20buka%20brankas%20rahasia%20di%20webmu!%20Makasih%20banyak%20buat%20semua%20kejutannya%20ya%20%F0%9F%A5%B0%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                Kirim Kabar ke Ais via WhatsApp 💬
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5.4 THE GRAND FINALE: TOMBOL RAYAKAN VANIA SEPENUHNYA -->
+      <section class="section-card grand-finale-section">
+        <div class="section-header">
+          <span class="section-tag">Puncak Mahakarya</span>
+          <h2>The Grand Finale: Rayakan Vania Sepenuhnya! 🎆👑</h2>
+          <p>Sentuh tombol emas di bawah ini untuk memicu pesta kembang api spektakuler 360 derajat!</p>
+        </div>
+        <div class="grand-finale-box">
+          <button id="grand-finale-btn" class="btn btn-grand-finale">
+            <span>💖 RAYAKAN VANIA SEPENUHNYA! 💖</span>
+          </button>
+        </div>
+        <div id="finale-celebration-card" class="result-card hidden finale-card">
+          <div class="finale-crown">👑</div>
+          <h2>YOU ARE TRULY LOVED & APPRECIATED, VANIA ✨</h2>
+          <p>
+            Website ini resmi dibuat dengan 100% ketulusan, senyuman, dan doa terbaik oleh <strong>Ais</strong> untuk <strong>Vania</strong>.
+          </p>
+          <p class="finale-subtext">Semoga hari-harimu selalu bertabur tawa, kehangatan, dan cinta sejati.</p>
+          <div class="finale-tags">
+            <span>#SpesialUntukVania</span>
+            <span>#DariAisDenganCinta</span>
+            <span>#SelaluAdaUntukmu</span>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- FOOTER RESMI -->
+    <footer class="site-footer">
+      <div class="footer-heart">💖</div>
+      <p class="footer-made">Dibuat khusus dengan segenap rasa kagum dan ketulusan oleh <strong>Ais</strong> untuk <strong>Vania</strong> ✨</p>
+      <p class="footer-copy">© 2026 Ais x Vania Special Wonderland • Semua hak cinta dilindungi 🌸</p>
+      <div class="footer-jump-top">
+        <a href="#hero-section" class="btn-jump">Kembali ke Atas ↑</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
